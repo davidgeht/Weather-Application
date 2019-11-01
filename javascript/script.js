@@ -41,7 +41,6 @@ var currentCityCall = function(){
         // uv Query URL 
         var UVQueryURL="http://api.openweathermap.org/data/2.5/uvi?appid="+APIKey+"&lat="+curLat+"&lon="+curLon;
         // UV index call
-
         $.ajax({
             url: UVQueryURL,
             Method: "GET"
@@ -51,13 +50,15 @@ var currentCityCall = function(){
         })
     });
     
-
+// third call for 5 day forecast
     var ForeQueryURL="http://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=imperial&appid="+APIKey;
     $.ajax({
         url: ForeQueryURL,
         method: "GET"
     })
     .then(function(response){
+        // deletes any prior information from the div so the new one can be appended
+        $("#Forecastblock").empty(); 
         // for loop to get the forecast infromation from each day 
         for(var i=0,k=0;i<5;i++){
             // dynamically appending the forecast call response to html 
@@ -83,6 +84,6 @@ var currentCityCall = function(){
     });
 };
 // Call function when document loads 
-$(document).ready(currentCityCall());
+$(document).ready(currentCityCall);
 // save the value of the searched item
 localStorage.setItem("searchedCity",city);
