@@ -1,11 +1,17 @@
 .header{
     background-image:url(../assets/cloud-background.jpg);
-    height:70px;
+    height:80px;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+   
 }
-h1{
+#mainTitle{
     font-size: 60px;
     color: black;
   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
+}
+#cities{
+    margin: 10px, 0, 0, 10px !important;
 }
