@@ -23,7 +23,7 @@ $("il").click(function(){
 var currentCityCall = function(){
     var city =$("#cityInfo").val();
 
-    var curQueryURL="http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid="+APIKey;
+    var curQueryURL="https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid="+APIKey;
     $.ajax({
         url: curQueryURL,
         method: "GET"
@@ -34,12 +34,12 @@ var currentCityCall = function(){
         temp.text("Temperature: "+response.main.temp+"°");
         humidity.text("Humidity: "+response.main.humidity+"%");
         windSpeed.text("Wind Speed: "+response.wind.speed+"MPH");
-        curIcon.attr("src","http://openweathermap.org/img/wn/"+response.weather[0].icon+"@2x.png");
+        curIcon.attr("src","https://openweathermap.org/img/wn/"+response.weather[0].icon+"@2x.png");
         // UV variables 
         var curLat=response.coord.lat;
         var curLon=response.coord.lon;
         // uv Query URL 
-        var UVQueryURL="http://api.openweathermap.org/data/2.5/uvi?appid="+APIKey+"&lat="+curLat+"&lon="+curLon;
+        var UVQueryURL="https://api.openweathermap.org/data/2.5/uvi?appid="+APIKey+"&lat="+curLat+"&lon="+curLon;
         // UV index call
         $.ajax({
             url: UVQueryURL,
@@ -51,7 +51,7 @@ var currentCityCall = function(){
     });
     
 // third call for 5 day forecast
-    var ForeQueryURL="http://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=imperial&appid="+APIKey;
+    var ForeQueryURL="https://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=imperial&appid="+APIKey;
     $.ajax({
         url: ForeQueryURL,
         method: "GET"
